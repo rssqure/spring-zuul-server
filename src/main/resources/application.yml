@@ -11,9 +11,15 @@ endpoints:
 
 zuul:
   routes:
-    zuulservice:
-      path: /**
-      url: http://localhost:8081
+    consul:
+      path: /consul/**
+      url: http://localhost:8083/consul
+    provider:
+      path: /provider/**
+      url: http://localhost:8081/provider
+  host:
+    max-total-connections: 100
+    max-per-route-connections: 10
 
 eureka:
   client:
